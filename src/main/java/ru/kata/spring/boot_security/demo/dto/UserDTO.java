@@ -3,8 +3,6 @@ package ru.kata.spring.boot_security.demo.dto;
 import ru.kata.spring.boot_security.demo.models.Role;
 import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
-
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 

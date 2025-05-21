@@ -1,9 +1,6 @@
 package ru.kata.spring.boot_security.demo.dto;
 
-
 import ru.kata.spring.boot_security.demo.models.Role;
-
-
 
 
 public class RoleDto {
@@ -19,9 +16,6 @@ public class RoleDto {
         this.id = role.getId();
         this.name = role.getName();
     }
-
-
-
 
 
     public Long getId() {

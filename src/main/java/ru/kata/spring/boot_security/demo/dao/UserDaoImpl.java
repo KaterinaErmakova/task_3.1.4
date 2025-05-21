@@ -3,7 +3,6 @@ package ru.kata.spring.boot_security.demo.dao;
 
 import org.springframework.stereotype.Repository;
 import ru.kata.spring.boot_security.demo.models.User;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -28,6 +27,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void saveUser(User user) {
         entityManager.persist(user);
+    }
+
+    @Override
+    public User findById(int id) {
+        return entityManager.find(User.class, id);
     }
 
     @Override

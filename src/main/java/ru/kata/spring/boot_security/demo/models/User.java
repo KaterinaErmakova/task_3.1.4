@@ -3,7 +3,6 @@ package ru.kata.spring.boot_security.demo.models;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
@@ -57,13 +56,10 @@ public class User implements UserDetails {
         return id;
     }
 
-<<<<<<< HEAD
-=======
     public void setId(int id) {
         this.id = id;
     }
 
->>>>>>> 22efb7d (fixed)
     public String getName() {
         return name;
     }
@@ -137,12 +133,9 @@ public class User implements UserDetails {
         return roles;
     }
 
-<<<<<<< HEAD
     public User getUser() {
         return this;
     }
-=======
->>>>>>> 22efb7d (fixed)
 
     @Transient
     private String rolesString;
@@ -154,12 +147,6 @@ public class User implements UserDetails {
     public void setRolesString(String rolesString) {
         this.rolesString = rolesString;
     }
-<<<<<<< HEAD
-=======
 
-    public User getUser() {
-        return this;
-    }
->>>>>>> 22efb7d (fixed)
 }
 
