@@ -13,6 +13,7 @@ import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
@@ -29,10 +30,17 @@ public class AdminController {
         this.userService = userService;
     }
 
+//    @ModelAttribute("currentUser")
+//    public UserDTO getCurrentUser(@AuthenticationPrincipal User principal) {
+//        return principal != null ? new UserDTO(principal.getUser()) : null;
+//
+//    }
+
     @ModelAttribute("currentUser")
     public UserDTO getCurrentUser(@AuthenticationPrincipal User principal) {
-        return principal != null ? new UserDTO(principal.getUser()) : null;
-
+        return Optional.ofNullable(principal)
+                .map(User::getUser)
+                .map(UserDTO::new).orElse(new UserDTO());
     }
 
     @GetMapping

@@ -11,6 +11,8 @@ import ru.kata.spring.boot_security.demo.dto.UserDTO;
 import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
+import java.util.Optional;
+
 
 @Controller
 @RequestMapping("/user")
@@ -25,8 +27,9 @@ public class UserController {
 
     @ModelAttribute("currentUser")
     public UserDTO getCurrentUser(@AuthenticationPrincipal User principal) {
-        return principal != null ? new UserDTO(principal.getUser()) : null;
-
+        return Optional.ofNullable(principal)
+                .map(User::getUser)
+                .map(UserDTO::new).orElse(new UserDTO());
     }
 
     @GetMapping
